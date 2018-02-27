@@ -1,0 +1,213 @@
+$raleway: 'Raleway', Arial, sans-serif;
+$roboto: 'Roboto', Arial, sans-serif;
+$openSans: 'Open Sans', Arial, sans-serif;
+$main_color:#ffcc00;
+@mixin column_flex{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    transition: all 0.2s ease;
+}
+body{
+    min-height:100vh;
+    width:100%;
+    background-color:#fff;
+    
+    .container{
+        display:block;
+        max-width:1120px;
+        margin:0 auto;
+        @include column_flex;
+        
+        header{
+            height:185px;
+            width:100%;
+            padding:54px 0;
+            @include column_flex;
+            
+            img{
+                margin-top:30px;
+            }
+            
+            .description{
+                font-family: $raleway;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 1.33;
+                letter-spacing: 0.4px;
+                text-align: center;
+                color: #898f8f;
+            }
+            .name{
+                font-family: $roboto;
+                font-size: 60px;
+                font-weight: 900;
+                line-height: 1.1;
+                text-align: center;
+                color: $main_color;
+            }
+        }
+        .slider{
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            width:100%;
+            
+            .fa-angle-left,
+            .fa-angle-right{
+                font-family: "FontAwesome";
+                font-size: 40px;
+                line-height: 0.6;
+                text-align: center;
+                color:$main_color;
+                margin: 0 20px;
+            }
+
+            .icon-divider{
+                display:block;
+                margin: 0 auto 40px;
+                width: 450px;
+            }
+
+            .slide {
+                flex:1;
+                .content {
+                    display: flex;
+                    justify-content: space-between;
+                    height: 550px;
+                    align-items: center;
+                    
+                	.wrapper{
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 410px;
+                        width: 410px;
+                        .cool-border {
+                            height:410px;
+                            width:410px;
+                            background-image: linear-gradient(to right, $main_color 25%, transparent 25% , transparent 75%,  $main_color 75%, $main_color 100%) ,
+                                               linear-gradient(to right, $main_color 25%, transparent 25% , transparent 75%,  $main_color 75%, $main_color 100%),
+                                               linear-gradient(to bottom,  $main_color 25%, transparent 25% , transparent 75%,  $main_color 75%, $main_color 100%),
+                                               linear-gradient(to bottom,  $main_color 25%, transparent 25% , transparent 75%,  $main_color 75%, $main_color 100%);
+                            background-position: left top, left bottom, left top, right top;
+                            background-size: 410px 1px, 410px 1px,1px 410px, 1px 410px;
+                            background-repeat:  repeat-x, repeat-x, repeat-y, repeat-y;
+                            position: absolute;
+                        }
+                        .img-wrapper {
+                            width: 385px;
+                            height: 385px;
+                            background: url("../img/img1.png");
+                            background-size: cover;
+                            border: 1px solid $main_color;
+                        }
+
+                        .txt-wrapper {
+                            h3 {
+                                font-family: $raleway ;
+                                font-size: 36px;
+                                font-weight: 900;
+                                line-height: 0.67;
+                                letter-spacing: 0.7px;
+                                text-align: center;
+                                color: #666666;
+                            }
+                            a {
+                                font-family: $openSans;
+                                font-size: 14px;
+                                font-weight: bold;
+                                line-height: 1.71;
+                                color: #666666;
+                                border: 1px solid $main_color;
+                                padding: 6px 12px;
+                                text-decoration: none;
+                                display: block;
+                                width: 131px;
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+                            .small-divider{
+                                width: 100px;
+                                height: 1px;
+                                background-color: $main_color;
+                                display: block;
+                                margin: 34px auto;
+                            }
+                            h4{
+                                font-family: $raleway;
+                                font-size: 24px;
+                                line-height: 1.5;
+                                text-align: center;
+                                color: #666666;
+                            }
+                            .divider-img{
+                                display: flex;
+                                justify-content: center;
+                                margin: 30px auto;
+                                img{
+                                    margin: 0 5px;
+                                }
+                            }
+                            p {
+                                font-family: Raleway;
+                                font-size: 14px;
+                                font-weight: 500;
+                                line-height: 1.71;
+                                text-align: center;
+                                color: #333333;
+                            }
+                            .small-divider-img{
+                                display: block;
+                                margin: 22px auto;
+                            }
+                        }
+                	}
+                        .divider-line{
+                            width: 1px;
+                          height: 560px;
+                          background-color: $main_color;
+                          position:relative;
+                          display: block;
+                        }
+                }
+            }
+            .slider-nav{
+                flex-basis:100%;
+                justify-content:center;
+                align-items:center;
+                text-align:center;
+                margin: 40px 0 95px;
+                span{
+                	display:inline-block;
+                    width: 10px;
+                    height: 10px;
+                    margin:4.5px;
+                    border-radius:5px;
+                    background-color: #fff;
+                    border: solid 1px $main_color;
+                    cursor:pointer;
+                    &:hover{
+                        border:none;
+                        background-color:$main_color;
+                    }
+                }
+            }
+        }
+        .nav{
+            display: inline-block;
+            float: right;
+            padding: 4px 0 0;
+            list-style:none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
